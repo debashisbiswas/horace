@@ -1,5 +1,8 @@
 const config = require('../config.json');
 
 module.exports = (client, member) => {
-	member.roles.add(member.guild.roles.cache.find(role => role.id === config.roles.initiate));
+	let role = member.guild.roles.cache.find(role => role.id === config.roles.initiate);
+	if (role != undefined) {
+		member.roles.add(role);
+	}
 };
